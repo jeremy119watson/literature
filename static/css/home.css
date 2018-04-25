@@ -1,0 +1,132 @@
+
+/**************************************
+******** containers **** *************
+**************************************/
+
+.container-home {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 50px 70px minmax(min-content,auto);
+  grid-template-areas: 
+      "teamA teamB"
+      "score score"
+      "game game";
+}
+
+/* For large displays (desktop, horizontal tablets, etc.)*/
+@media(min-width: 900px){
+  .container-home {
+    display: grid;
+    grid-template-columns: 30px 150px auto 150px 30px;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+        ". . score . ."
+        ". teamA game teamB ."
+        ". . . . .";
+  }
+}
+
+.container-score {
+  grid-area: score;
+  display: grid;
+  grid-template-columns: auto minmax(min-content,200px) 50px minmax(min-content,200px) 50px auto;
+  grid-template-rows: 50px;
+  grid-template-areas: 
+    ". labelA scoreA labelB scoreB .";
+  font-size: 18pt;
+  text-align: center;
+  vertical-align: middle;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.container-players {
+  display :flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: center;
+  font-size: 16pt;
+}
+
+/**************************************
+******** team items ******************
+**************************************/
+
+.team-a{
+  grid-area: teamA;
+}
+.team-b {
+  grid-area: teamB;
+}
+
+.player-a {
+  background-color: rgb(0, 165, 235);
+  min-height: 50px;
+  color: white;
+}
+
+.player-b {
+  background-color: rgb(0, 155, 20) ;
+  min-height: 50px;
+  color: white;
+}
+
+/* For large displays (desktop, horizontal tablets, etc.)*/
+@media(min-width: 900px){
+  .player-a {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+  }
+  
+  .player-b {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+  }
+}
+
+/**************************************
+******** score items *****************
+**************************************/
+
+.label-a{
+  grid-area: labelA;
+  background-color:rgb(0, 145, 225);
+}
+
+.label-b{
+  grid-area: labelB;
+  background-color:rgb(0, 135, 10)
+}
+
+.score-a{
+  grid-area: scoreA;
+  background-color:rgb(0, 165, 235);
+}
+
+.score-b{
+  grid-area: scoreB;
+  background-color:rgb(0, 155, 20)
+}
+
+/**************************************
+******** shared stylings *************
+**************************************/
+
+.text-white, .label-a, .label-b, .score-a, .score-b, .player-a, .player-b {
+  color: white;
+  padding-top: 8px
+}
+
+/**************************************
+******** game canvas *****************
+**************************************/
+
+.player-hand {
+  grid-area: game;
+  min-height: 400px;
+  margin: auto auto auto auto;
+}
+

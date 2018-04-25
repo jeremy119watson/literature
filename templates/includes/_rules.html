@@ -1,0 +1,121 @@
+<div id="id01" class="w3-modal" style="display: none;">
+    <div class="w3-modal-content w3-card-4 w3-animate-top" style="max-width: 600px">
+        <header class="w3-container jer-grey">
+            <span onclick="document.getElementById('id01').style.display='none'" class="w3-button jer-grey w3-xlarge w3-display-topright">&times;</span>
+            <p class="f-14">Rules</p>
+        </header>
+
+        <div class="w3-bar jer-grey2">
+            <button class="tablink w3-bar-item w3-button w3-mobile f-12" onclick="openRule('Setup', 0)" id="SetupLink">Setup</button>
+            <button class="tablink w3-bar-item w3-button w3-mobile f-12" onclick="openRule('Objective', 0)" id="ObjectiveLink">Objective</button>
+            <button class="tablink w3-bar-item w3-button w3-mobile f-12" onclick="openRule('Gameplay', 0)" id="GameplayLink">Gameplay</button>
+            <button class="tablink w3-bar-item w3-button w3-mobile f-12" onclick="openRule('Arguments', 0)" id="ArgumentsLink">Arguments</button>
+        </div>
+
+        <div id="Setup" class="w3-container rule">
+            <ul>
+                <li>The game is played with a regular deck of playing cards, excluding the 2 and Joker cards. </li>
+                <br>
+                <li>The 48 cards are distributed evenly among the two teams of three players each.</li>
+                <br>
+            </ul>
+        </div>
+
+        <div id="Objective" class="w3-container rule">
+            <ul>
+                <li>The objective of the game is to collect all of the cards in an lower suit (from 3 to 8) or an upper suit
+                    (from 9 to A). </li>
+                <br>
+                <li>When a player gets all the cards in a lower suit (3 to 8) or an upper suit (9 to A) in a particular suit,
+                    he/she declares the completion of the lower/upper suit and the team gets 1 point (for lower suits) or
+                    2 points (for upper suits). </li>
+                <br>
+                <li>The game ends when all of the lower and upper suits are collected.</li>
+                <br>
+            </ul>
+        </div>
+
+        <div id="Gameplay" class="w3-container rule">
+            <p>A player's turn is as follows:</p>
+            <ul>
+                <li>The player can ask for a particular card from one of their opponents; the player needs to identify the opponent
+                    and ask for a particular card (suit and value - example: 6 of spades).</li>
+                <br>
+                <ul>
+                    <li>If the called opponent has that card, the opponent must give the card to the player and the current player
+                        gets another turn. </li>
+                    <br>
+                    <li>If the opponent does not have the card, then the current player loses their turn and the turn will now
+                        shift to the opponent who was called.</li>
+                    <br>
+                </ul>
+                <li>If the player collects all the cards in a lower or upper suit in a particular suit, he/she declares the completion
+                    of the lower or upper suit.</li>
+                <br>
+            </ul>
+        </div>
+
+        <div id="Arguments" class="w3-container rule">
+            <p>It is inevitable that two or more opposing players will have a difference of opinion. To settle the matter, the
+                players may:</p>
+            <ul>
+                <li>Play rock-paper-scissors</li>
+                <br>
+                <li>Flip a coin</li>
+                <br>
+                <li>Fight until submission</li>
+                <br>
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    // click on setup tab
+    document.getElementsByClassName("tablink")[0].click();
+
+    // // determine tab to switch to when navigating with arrow keys
+    // function openRuleByKey(moveBy) {
+    //     var x, i, t;
+    //     x = document.getElementsByClassName("rule");
+    //     for (i = 0; i < x.length; i++) {
+    //         if (x[i].style.display == "block") break;
+    //     }
+    //     console.log(i);
+    //     t = i + moveBy;
+    //     if (t == -1) t = x.length - 1;
+    //     else if (t == x.length) t = 0;
+    //     openRule(x[t].id);
+    // }
+
+    // switch to different rule tab
+    function openRule(ruleName) {
+        var i, x, tablinks;
+        x = document.getElementsByClassName("rule");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < x.length; i++) {
+            tablinks[i].classList.remove("w3-white");
+        }
+        document.getElementById(ruleName).style.display = "block";
+        document.getElementById(ruleName + "Link").classList.add("w3-white");
+    }
+
+    // // navigate through rules modal by the arrow keys
+    // document.addEventListener('keyup', (event) => {
+    //     if (document.getElementById("id01").style.display == 'none') return;
+    //     var keyCode = event.keyCode;
+    //     if (keyCode == 37) openRuleByKey(-1); // left arrow
+    //     else if (keyCode == 39) openRuleByKey(1); // right arrow
+    // }, false);
+
+    // close modal by clicking anywhere
+    var modal = document.getElementById('id01');
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
