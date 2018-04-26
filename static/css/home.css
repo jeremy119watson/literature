@@ -1,113 +1,59 @@
 
 /**************************************
-******** containers **** *************
+******** main area *****************
 **************************************/
-
-/* .container-home {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 50px 70px minmax(min-content,auto);
-  grid-template-areas: 
-      "teamA teamB"
-      "score score"
-      "game game";
-} */
-
-/* For large displays (desktop, horizontal tablets, etc.)*/
-/* @media(min-width: 900px){
-  .container-home {
-    display: grid;
-    grid-template-columns: 30px 150px auto 150px 30px;
-    grid-template-rows: auto auto auto;
-    grid-template-areas: 
-        ". . score . ."
-        ". teamA game teamB ."
-        ". . requestCard . .";
-  }
-} */
 
 .container-home {
   display: grid;
-  grid-template-columns: 30px 150px auto 150px 30px;
-  grid-template-rows: auto auto auto;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 70px 70px 500px auto;
   grid-template-areas: 
-      ". . score . ."
-      ". teamA game teamB ."
-      ". . requestCard . .";
+      "score score"
+      "players players"
+      "game game"
+      "requestCard requestCard";
 }
+
+/**************************************
+******** player items ****************
+**************************************/
+
+.container-players {
+  grid-area: players;
+  display : grid;
+  grid-template-columns: 1fr min-content min-content min-content min-content min-content min-content 1fr;
+  grid-auto-rows: 50px;
+  grid-template-areas:
+      ". a1 a2 a3 b1 b2 b3 .";
+  font-size: 16pt;
+  margin-bottom: 10px;
+}
+
+.player {
+  width: 100px;
+  margin: 0px;
+  text-align: center;
+  padding-top: 10px;
+  
+}
+
+/**************************************
+******** score area *****************
+**************************************/
 
 .container-score {
   grid-area: score;
   display: grid;
-  grid-template-columns: auto minmax(min-content,200px) 50px minmax(min-content,200px) 50px auto;
+  grid-template-columns: auto 200px 100px 200px 100px auto;
   grid-template-rows: 50px;
   grid-template-areas: 
     ". labelA scoreA labelB scoreB .";
   font-size: 18pt;
   text-align: center;
   vertical-align: middle;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 0px;
 }
-
-.container-players {
-  display :flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  text-align: center;
-  font-size: 16pt;
-}
-
-/**************************************
-******** team items ******************
-**************************************/
-
-.team-a{
-  grid-area: teamA;
-}
-.team-b {
-  grid-area: teamB;
-}
-
-.player-a {
-  width: 150px;
-  height: 150px;
-  margin-bottom: 10px;
-}
-
-.player-b {
-  width: 150px;
-  height: 150px;
-  margin-bottom: 10px;
-}
-
-/* .player-a {
-  min-height: 50px;
-}
-
-.player-b {
-  min-height: 50px;
-} */
-
-/* For large displays (desktop, horizontal tablets, etc.)*/
-/* @media(min-width: 900px){
-  .player-a {
-    width: 150px;
-    height: 150px;
-    margin-bottom: 10px;
-  }
-  
-  .player-b {
-    width: 150px;
-    height: 150px;
-    margin-bottom: 10px;
-  }
-} */
-
-/**************************************
-******** score items *****************
-**************************************/
 
 .label-a{
   grid-area: labelA;
@@ -125,6 +71,14 @@
   grid-area: scoreB;
 }
 
+.jer-border-r{
+  border-right: solid 2px rgba(0, 0, 0, 0.100);
+}
+
+.jer-border-b{
+  border-bottom: solid 2px rgba(0, 0, 0, 0.100);
+}
+
 /**************************************
 ******** shared stylings *************
 **************************************/
@@ -135,14 +89,8 @@
 }
 
 /**************************************
-******** game canvas *****************
+******** start area *****************
 **************************************/
-
-.player-hand {
-  grid-area: game;
-  min-height: 400px;
-  margin: auto auto auto auto;
-}
 
 .start {
   grid-area: start;
@@ -163,6 +111,17 @@
       ". . .";
   padding: 10%;
 }
+
+/**************************************
+******** game area *****************
+**************************************/
+
+.player-hand {
+  grid-area: game;
+  min-height: 400px;
+  margin: auto auto auto auto;
+}
+
 
 .container-hand {
   grid-area: game;
@@ -190,4 +149,81 @@
 
 .cards {
   height: 100px;
+}
+
+
+/**************************************
+******** message modal ****************
+**************************************/
+
+.container-message {
+  display: grid;
+  grid-auto-columns: 1fr min-content 1fr;
+  grid-auto-rows: 2fr 1fr;
+  grid-template-areas:
+      "content content content"
+      ". closeMessage .";
+}
+
+.container-message-button {
+  grid-area: closeMessage;
+  display: grid;
+  grid-template-columns: 1fr min-content 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: 
+      ". button .";
+}
+
+.message {
+  grid-area: content;
+  font-size: 16pt;
+  margin: 20px;
+}
+
+.message-button {
+  margin: 20px;
+  grid-area: button;
+  width: min-content;
+  font-size: 18pt;
+}
+
+/**************************************
+******** request modal ****************
+**************************************/
+
+.container-request {
+  display: grid;
+  grid-template-columns: 1fr 300px 120px 1fr;
+  grid-template-rows: 20px min-content min-content min-content min-content 20px;
+  grid-template-areas:
+      ". . . ."
+      ". player pSelect ."
+      ". number nSelect ."
+      ". suit sSelect ."
+      ". cancel request .";
+}
+
+.request-options {
+  font-size: 16pt;
+  padding-top: 5px;
+}
+
+.request-select {
+  background-color: white;
+  color: black;
+}
+
+.request-cancel-button {
+  grid-area: cancel;
+  width: 120px;
+}
+
+.request-request-button {
+  grid-area: request;
+  width: 120px;
+}
+
+.request-content {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

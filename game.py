@@ -46,6 +46,7 @@ class Game:
     #   current player if none specified
     def get_player(self, player_id=None):
 
+        print(player_id)
         if player_id is None or player_id not in range(1,7):
             player_id = self.__current_player_id
 
@@ -90,7 +91,7 @@ class Game:
             if asker.can_declare():
                 self.__current_player_declares()
 
-            message = 'You got the %s!' % (card.get_verbose_name())
+            message = 'You recieved the %s' % (card.get_verbose_name())
             
         else:
             self.set_current_player(askee_id)
@@ -105,7 +106,7 @@ class Game:
 
         player = self.get_player()
         declaration = player.declare()
-        self.__score[player.get_team()] += (declaration[1] + 1)
+        self.__score[0 if self.__current_player_id < 4 else 1] += (declaration[1] + 1)
 
     # ----------------------------------------------------------------
     # ----------------------------------------------------------------

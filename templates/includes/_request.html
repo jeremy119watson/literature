@@ -1,0 +1,36 @@
+<div id="requestModal" class="w3-modal ">
+    <div class="w3-modal-content w3-card w3-animate-bottom" style="max-width: 500px; top: 25%;">
+        <div class="container-request">
+            <div class="request-options request-content" style="grid-area: player">Opposing player</div>
+            <select id="playerSelect" class="w3-select w3-border request-select request-content" name="option" style="grid-area: pSelect">
+                <option value="1">Player 1</option>
+                <option value="2">Player 2</option>
+                <option value="3">Player 3</option>
+            </select>
+            <div class="request-options request-content" style="grid-area: number">Card number</div>
+            <select id="numberSelect" class="w3-select w3-border request-select request-content" name="option" style="grid-area: nSelect">
+                <option value="3">Three</option>
+                <option value="4">Four</option>
+                <option value="5">Five</option>
+                <option value="6">Six</option>
+                <option value="7">Seven</option>
+                <option value="8">Eight</option>
+                <option value="9">Nine</option>
+                <option value="10">Ten</option>
+                <option value="11">Jack</option>
+                <option value="12">Queen</option>
+                <option value="13">King</option>
+                <option value="14">Ace</option>
+            </select>
+            <div class="request-options request-content" style="grid-area: suit">Card suit</div>
+            <select id="suitSelect" class="w3-select w3-border request-select request-content" name="option" style="grid-area: sSelect">
+                <option value="1">Clubs</option>
+                <option value="2">Spades</option>
+                <option value="3">Hearts</option>
+                <option value="4">Diamonds</option>
+            </select>
+            <button class="w3-button jer-grey request-cancel-button request-content" onclick="document.getElementById('requestModal').style.display='none'">Cancel</button>
+            <button class="w3-button jer-yellow request-request-button request-content" ng-click="inquiry()">Request</button>
+        </div>
+    </div>
+</div>

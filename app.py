@@ -6,6 +6,7 @@ between the GUI and the game.
 '''
 from flask import Flask, render_template
 from game import Game
+import json
 
 app = Flask(__name__)
 game = None
@@ -36,6 +37,10 @@ def turn_json():
 @app.route('/game/inquiry/<int:player>/<int:suit>/<int:number>')
 def inquiry(player, suit, number):
     return game.player_inquiry(player, suit, number)
+
+@app.route('/game/peek/<int:player>')
+def peek(player):
+    return json.dumps(game.get_player(player).get_info())
 
 if __name__ == '__main__':
     app.run(debug=True)

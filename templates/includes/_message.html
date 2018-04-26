@@ -1,0 +1,21 @@
+<div id="messageModal" class="w3-modal">
+    <div class="w3-modal-content w3-card w3-animate-opacity" style="max-width: 600px; top: 25%;">
+        <div class="container-message">
+            <div class="message w3-center" id="modalMessageContent">message</div>
+            <div class="container-message-button">
+                <button id="okButton" class="w3-button message-button jer-yellow">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="peekModal" class="w3-modal">
+    <div class="w3-modal-content w3-card w3-animate-opacity">
+        <header class="w3-container">
+            <span onclick="document.getElementById('peekModal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+        </header>
+        <div class="container-hand">
+            <img ng-repeat="image in peekHand" src="{{ '{{image}}' }}" class="w3-round cards">
+        </div>
+    </div>
+</div>
