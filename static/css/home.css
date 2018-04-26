@@ -130,3 +130,29 @@
   margin: auto auto auto auto;
 }
 
+.start {
+  grid-area: start;
+  width: fit-content;
+  height: fit-content;
+  font-size: 30pt;
+  background-color: rgb(255, 191, 0);
+  color: black;
+}
+
+.container-start {
+  display: grid;
+  grid-template-columns: auto min-content auto;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: 
+      ". . ."
+      ". start ."
+      ". . .";
+  padding: 10%;
+}
+
+.container-hand {
+  grid-area: game;
+  display: flex;
+  margin: 0px 10px 10px 10px;
+  background-color: hotpink;
+}

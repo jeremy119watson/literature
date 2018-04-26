@@ -35,8 +35,7 @@ def turn_json():
 
 @app.route('/game/inquiry/<int:player>/<int:suit>/<int:number>')
 def inquiry(player, suit, number):
-    game.player_inquiry(player, suit, number)
-    return game.get_json
+    return game.player_inquiry(player, suit, number)
 
 if __name__ == '__main__':
     app.run(debug=True)

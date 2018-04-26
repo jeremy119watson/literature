@@ -80,6 +80,8 @@ class Game:
         card = Card(suit, number)
         asker = self.get_player()
         askee = self.get_player(askee_id)
+        message = ""
+        success = True
 
         if askee.has_card(card):
             askee.lose_card(card)
@@ -88,10 +90,13 @@ class Game:
             if asker.can_declare():
                 self.__current_player_declares()
 
-            return True
+            message = 'You got the %s!' % (card.get_verbose_name())
+            
         else:
             self.set_current_player(askee_id)
-            return False
+            message = 'This player does not have the %s. You lose your turn.' % (card.get_verbose_name())
+        
+        return json.dumps({'success': success, 'message': message})
     
     # ----------------------------------------------------------------
     # ----------------------------------------------------------------

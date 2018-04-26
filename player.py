@@ -44,6 +44,8 @@ class Player:
         if self.has_card(card):
             return
 
+        self.__declaration = None
+
         suit = card.get_suit_number()
         l_h = card.get_low_or_high()
 
@@ -52,7 +54,6 @@ class Player:
 
         if suit_counter == 6:
             self.__declaration = [suit, l_h]
-            self.__decl_str = '%s %s' % ('Low' if l_h == 0 else 'High', suits[suit])
         
         self.__hand.append(card)
         self.sort_hand()
@@ -76,8 +77,8 @@ class Player:
 
     def has_card(self, card):
 
-        print(card.get_data())
-        print(card in self.__hand)
+        # print(card.get_card_info())
+        # print(card in self.__hand)
 
         for pcard in self.__hand:
             if pcard == card:
@@ -91,10 +92,11 @@ class Player:
 
         hand = []
         for card in self.__hand:
-            hand.append(card.get_data())
+            hand.append(card.get_card_info())
 
         return {
-                'player_number' : self.__number,
+                'number' : self.__number,
+                'id'     : self.__id,
                 'can_declare'   : self.can_declare(),
                 'declaration'   : self.__get_declaration_str(),
                 'hand'          : hand
@@ -117,8 +119,6 @@ class Player:
         for card in self.__hand:
             if [card.get_suit_number(), card.get_low_or_high()] == self.__declaration:
                 self.lose_card(card)
-
-        self.__declaration = None
 
         return declaration
 

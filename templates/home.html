@@ -1,14 +1,21 @@
 {% extends 'layout.html' %} {% block body %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/home.css') }}">
-<script src="{{ url_for('static',filename='js/p5.js') }}"></script>
+<!-- <script src="{{ url_for('static',filename='js/p5.js') }}"></script>
 <script src="{{ url_for('static',filename='js/p5.dom.js') }}"></script>
-<script src="{{ url_for('static',filename='js/sketch.js') }}"></script>
+<script src="{{ url_for('static',filename='js/sketch.js') }}"></script> -->
 
-<div class="container-home" ng-controller="GameController">
-    <div class="container-players team-a" id="aPanel">{% include 'includes/_aTeam.html' %}</div>
-    <div class="container-players team-b" id="bPanel">{% include 'includes/_bTeam.html' %}</div>
-    <div class="container-score f-14">{% include 'includes/_score.html' %}</div>
-    <div class="player-hand" id="player-hand-canvas"></div>
+<div class="home" ng-controller="GameController">
+    <div class="container-start" id="startGrid">
+        <button class="start w3-button" id="startButton" ng-click="startGame()">Start Game</button>
+    </div>
+    <div class="container-home" style="display: none" id="gameHome">
+        <div class="container-players team-a" id="aPanel">{% include 'includes/_aTeam.html' %}</div>
+        <div class="container-players team-b" id="bPanel">{% include 'includes/_bTeam.html' %}</div>
+        <div class="container-score f-14" id="scorePanel">{% include 'includes/_score.html' %}</div>
+        <div class="container-hand" ng-repeat="image in cardImages">
+            <img ng-src="/static/images/cards{{image}}" class="w3-round" alt="card">
+        </div>
+    </div>
 </div>
 <!-- <script type="text/javascript">
     window.onbeforeunload = function() {
