@@ -3,7 +3,7 @@
 ******** containers **** *************
 **************************************/
 
-.container-home {
+/* .container-home {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 50px 70px minmax(min-content,auto);
@@ -11,10 +11,10 @@
       "teamA teamB"
       "score score"
       "game game";
-}
+} */
 
 /* For large displays (desktop, horizontal tablets, etc.)*/
-@media(min-width: 900px){
+/* @media(min-width: 900px){
   .container-home {
     display: grid;
     grid-template-columns: 30px 150px auto 150px 30px;
@@ -22,8 +22,18 @@
     grid-template-areas: 
         ". . score . ."
         ". teamA game teamB ."
-        ". . . . .";
+        ". . requestCard . .";
   }
+} */
+
+.container-home {
+  display: grid;
+  grid-template-columns: 30px 150px auto 150px 30px;
+  grid-template-rows: auto auto auto;
+  grid-template-areas: 
+      ". . score . ."
+      ". teamA game teamB ."
+      ". . requestCard . .";
 }
 
 .container-score {
@@ -61,19 +71,27 @@
 }
 
 .player-a {
-  background-color: rgb(0, 165, 235);
-  min-height: 50px;
-  color: white;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 10px;
 }
 
 .player-b {
-  background-color: rgb(0, 155, 20) ;
-  min-height: 50px;
-  color: white;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 10px;
 }
 
+/* .player-a {
+  min-height: 50px;
+}
+
+.player-b {
+  min-height: 50px;
+} */
+
 /* For large displays (desktop, horizontal tablets, etc.)*/
-@media(min-width: 900px){
+/* @media(min-width: 900px){
   .player-a {
     width: 150px;
     height: 150px;
@@ -85,7 +103,7 @@
     height: 150px;
     margin-bottom: 10px;
   }
-}
+} */
 
 /**************************************
 ******** score items *****************
@@ -93,22 +111,18 @@
 
 .label-a{
   grid-area: labelA;
-  background-color:rgb(0, 145, 225);
 }
 
 .label-b{
   grid-area: labelB;
-  background-color:rgb(0, 135, 10)
 }
 
 .score-a{
   grid-area: scoreA;
-  background-color:rgb(0, 165, 235);
 }
 
 .score-b{
   grid-area: scoreB;
-  background-color:rgb(0, 155, 20)
 }
 
 /**************************************
@@ -153,6 +167,27 @@
 .container-hand {
   grid-area: game;
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
   margin: 0px 10px 10px 10px;
-  background-color: hotpink;
+}
+
+.container-request-button {
+  grid-area: requestCard;
+  display: grid;
+  grid-template-columns: 1fr min-content 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: 
+      ". button .";
+}
+
+.request-button {
+  grid-area: button;
+  width: min-content;
+  font-size: 18pt;
+}
+
+.cards {
+  height: 100px;
 }

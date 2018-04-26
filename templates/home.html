@@ -12,8 +12,11 @@
         <div class="container-players team-a" id="aPanel">{% include 'includes/_aTeam.html' %}</div>
         <div class="container-players team-b" id="bPanel">{% include 'includes/_bTeam.html' %}</div>
         <div class="container-score f-14" id="scorePanel">{% include 'includes/_score.html' %}</div>
-        <div class="container-hand" ng-repeat="image in cardImages">
-            <img ng-src="/static/images/cards{{image}}" class="w3-round" alt="card">
+        <div class="container-hand" >
+            <img ng-repeat="image in cardImages" src="{{ '{{image}}' }}" class="w3-round cards">
+        </div>
+        <div class="container-request-button">
+            <button class="w3-button jer-yellow request-button">Request a card</button>
         </div>
     </div>
 </div>

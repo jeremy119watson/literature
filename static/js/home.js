@@ -78,7 +78,7 @@ app.controller("GameController", function($scope, $http){
         hand = data.current_player.hand;
         for(i = 0; i < hand.length; i++){
             console.log("hello");
-            $scope.cardImages.push(hand[i].imgName);
+            $scope.cardImages.push('static/images/cards/'+ hand[i].imgName);
         }
         console.log($scope.cardImages);
 
@@ -115,7 +115,7 @@ app.controller("GameController", function($scope, $http){
         let unHighlight = function () {
             let box = document.getElementById(currentPlayer.toString());
             if (box.style.color == "white") return;
-            box.style.backgroundColor = teamColors[currentPlayer > 3 ? 3 : 1]
+            box.style.backgroundColor = teamColors[currentPlayer > 3 ? 2 : 0]
             box.style.color = "white";
         }
 
