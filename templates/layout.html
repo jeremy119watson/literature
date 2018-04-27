@@ -9,12 +9,9 @@
     <link rel="icon" type="image/png" href="{{ url_for('static',filename='images/favicon.png') }}">
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/w3.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/layout.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/fontawesome-all.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/colors.css') }}">
-    <!-- <script src="{{ url_for('static',filename='js/jquery-3.3.1.min.js') }}"></script> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
     <script src="{{ url_for('static',filename='js/angular.min.js') }}"></script>
-    <script src="{{ url_for('static',filename='js/home.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/game.js') }}"></script>
 
 </head>
 
@@ -22,6 +19,7 @@
     {% include 'includes/_navbar.html' %}
     {% block body %}{% endblock %}
     {% include 'includes/_rules.html' %}
+    {% include 'includes/_about.html' %}
 </body>
 
 </html>

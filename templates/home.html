@@ -1,19 +1,14 @@
 {% extends 'layout.html' %} {% block body %}
-<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/home.css') }}">
-<!-- <script src="{{ url_for('static',filename='js/p5.js') }}"></script>
-<script src="{{ url_for('static',filename='js/p5.dom.js') }}"></script>
-<script src="{{ url_for('static',filename='js/sketch.js') }}"></script> -->
-
 <div class="home" ng-controller="GameController">
-    {% include 'includes/_message.html' %}
-    {% include 'includes/_request.html' %}
+    {% include 'includes/_message.html' %} {% include 'includes/_request.html' %}
     <div class="container-start" id="startGrid">
         <button class="start w3-button" id="startButton" ng-click="startGame()">Start Game</button>
     </div>
     <div class="container-home" style="display: none" id="gameHome">
         <div class="container-players">{% include 'includes/_players.html' %}</div>
         <div class="container-score f-14" id="scorePanel">{% include 'includes/_score.html' %}</div>
-        <div class="container-hand" >
+        <div class="container-hand">
+            <div id="refreshMessage" class="refresh-message">refresh page for new game</div>
             <img ng-repeat="image in cardImages" src="{{ '{{image}}' }}" class="w3-round cards">
         </div>
         <div class="container-request-button">
@@ -21,9 +16,9 @@
         </div>
     </div>
 </div>
-<!-- <script type="text/javascript">
-    window.onbeforeunload = function() {
+<script type="text/javascript">
+    window.onbeforeunload = function () {
         return true;
     };
-</script> -->
+</script> 
 {% endblock %}

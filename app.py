@@ -18,11 +18,6 @@ def index():
     game = None
     return render_template('home.html')
 
-# about page
-@app.route('/about')
-def about():
-    return render_template('about.html')
-
 # start game, and get first player info
 @app.route('/game/start',methods=['GET'])
 def start_g():

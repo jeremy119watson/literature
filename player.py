@@ -115,8 +115,8 @@ class Player:
     def declare(self):
 
         declaration = copy.copy(self.__declaration)
-        
-        for card in self.__hand:
+        hand = copy.copy(self.__hand)
+        for card in hand:
             if [card.get_suit_number(), card.get_low_or_high()] == self.__declaration:
                 self.lose_card(card)
 
@@ -130,6 +130,9 @@ class Player:
         if self.__declaration is None:
             return 'None'
         
-        h_or_l = 'low' if self.__declaration[1] == 0 else 'high'
+        decl = copy.copy(self.__declaration)
+        self.__declaration = None
+        
+        h_or_l = 'low' if decl[1] == 0 else 'high'
 
-        return '%s %s' % (h_or_l, suits[self.__declaration[0]])
+        return '%s %s' % (h_or_l, suits[decl[0]])

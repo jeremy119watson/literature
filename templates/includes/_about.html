@@ -1,0 +1,26 @@
+<div id="aboutModal" class="w3-modal" style="display: none;">
+    <div class="w3-modal-content w3-card-4 w3-animate-top" style="max-width: 600px">
+        <header class="w3-container jer-grey">
+            <span onclick="document.getElementById('aboutModal').style.display='none'" class="w3-button jer-grey w3-xlarge w3-display-topright">&times;</span>
+            <p class="f-14">About</p>
+        </header>
+        <div class="w3-container grid-container-about">
+            <div class="about-info">
+                <h1 class="display-4">Play Literature</h1>
+                <p class="lead">Developed by Jeremy Watson</p>
+                <p class="lead">Contact: nah</p>
+                <hr class="my-4">
+                <p>Implemenation eh of the Canadian card game, Literature, for CS 446.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script>    
+    // close modal by clicking anywhere
+    var modal = document.getElementById('aboutModal');
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
