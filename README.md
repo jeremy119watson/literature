@@ -1,6 +1,7 @@
-### Note:
+# literature
 
-This was a project for my Object-Oriented design class in college, the focus being on the object-oriented game logic. The following description was required for grading.
+This is an implementation of the card game, Literature. This was a project for my Object-Oriented Design class in college, the focus being on the object-oriented game logic. As such, the implementation is not actually designed for six different players to play the game, instead it is designed for one person to demo the game.
+The following description was required for grading.
 ___
 
 Literature Project
