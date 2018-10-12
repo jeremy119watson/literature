@@ -1,3 +1,8 @@
+### Note:
+
+This was a project for my Object-Oriented design class in college, the focus being on the object-oriented game logic. The following description was required for grading.
+___
+
 Literature Project
 ___
 I used **Python** for my **object-oriented** language. These files are found in the "Literature" directory.
