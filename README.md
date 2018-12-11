@@ -1,7 +1,5 @@
 # literature
 
-(orignally hosted on Github)
-
 This is an implementation of the card game, Literature. This was a project for my Object-Oriented Design class in college, the focus being on the object-oriented game logic. As such, the implementation is not actually designed for six different players to play the game, instead it is designed for one person to demo the game.
 
 Looking back on it now, I would better redesign the portion written in Python to be easier to understand -- it's a bit clunky as is. I should've used git as intended but instead I used it to backup my code.
